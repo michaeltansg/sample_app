@@ -11,5 +11,12 @@ require 'spec_helper'
 #   end
 # end
 describe StaticPagesHelper do
-#  pending "add some examples to (or delete) #{__FILE__}"
+  describe "full title" do
+    it "should display page title - Home" do
+      helper.full_title("Home").should == "Ruby on Rails Tutorial Sample App | Home"
+    end
+    it "should display base title only" do
+      helper.full_title("").should == "Ruby on Rails Tutorial Sample App"
+    end
+  end
 end
