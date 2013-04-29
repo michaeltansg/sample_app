@@ -16,10 +16,10 @@ describe StaticPagesHelper do
       helper.full_title('Home').should =~ /Home/
     end
     it "should include base title" do
-      helper.full_title('Home').should =~ /^Ruby on Rails Tutorial Sample App/
+      helper.full_title('Home').should =~ /^#{APP_FULLNAME}/
     end
     it "should display base title only" do
-      helper.full_title('').should == "Ruby on Rails Tutorial Sample App"
+      helper.full_title('').should == "#{APP_FULLNAME}"
     end
     it "should not display | in title" do
       helper.full_title('').should_not =~ /\|/
