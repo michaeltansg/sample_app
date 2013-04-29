@@ -28,6 +28,14 @@ describe "User Pages" do
       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
       end
+
+      describe "after submission" do
+        before { click_button submit }
+
+        it { should have_selector('title', text: 'Sign up') }
+        it { should have_content('error') }
+        it { should_not have_content('Password digest') }
+      end
     end
 
     describe "with valid information" do
@@ -53,6 +61,7 @@ describe "User Pages" do
         let(:user) { User.find_by_email("tan.michael@mac.com") }
         
         it { should have_selector('title', text: user.name) }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
       end
     end
   end
