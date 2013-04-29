@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to root_path
+      # redirect_to user_path(@user)
+      redirect_to @user
     else
       # render template
       render 'new'
